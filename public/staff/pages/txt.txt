@@ -1,0 +1,48 @@
+header($string);
+header("Content-Type: applicatoin/pdf");
+header("HTTP/1.1 404 Not Found");
+header("HTTP/1.1 500 Internal Server Error");
+
+Headers are sent before all other page data. Changes must bve made before any HTML output. Even before a single space, line return, whitespace in included files, or after whitespace inside PHP tags. Headers must come first.
+Any changes must come before modifying any data.
+
+Page Redirection
+302 redirect;
+HTTP/1.1 302 Found
+Location: path
+    header("Location: login.php");
+
+Example:
+User submits user and password on loginPhp code checks user credentials
+If its corerct, user sent to success page. If incorrect, sent to failure page
+
+Page redirects are sent in headers. which are sent before page data. Header changes must be made before any HTML output
+Page redicts must be sent before any HTML output
+
+Output Buffering
+Data in output buffer is editable. Headers can be changed. Whitespace can be sent before header edits and redirect.
+
+Turn on buffering in php.ini file. Often on by default.  use phpinfo(); buffering enabled in characters. 4096 is good amount. 
+4096 characters before headers get dumped into web Server
+
+from php code ob_start()
+ob_end_flush() - flush results into web server
+
+Best to turn output buffering on in php.ini. Use ob_start when code may be ported to other servers. Rare we will need to flush manually.
+Turn ob start on at start of initialize.php
+
+Build Forms = most common ways
+URLs/Links
+Forms
+GET
+POSt
+
+Use Form Parameters
+    In superglobal variable: $_POST
+    same as $_GET
+    assigned by PHP before processing page code
+    Do not need to encode form paramaters
+
+$name = $_POST['name'];
+$name = isset($_POST['name']) ? $_POST['name'] : ";
+$n = $_POST['name'] ?? "; // PHP > 7.0
