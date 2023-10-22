@@ -8,14 +8,14 @@ $subjects = [
 ];
 
 $page_title = 'Subjects';
-include(SHARED_PATH . '/staff_header.php'); ?>
+include(SHARED_PATH . '/staff-header.php'); ?>
 
 <div id="content">
     <div class="subjects listing">
         <h1>Subjects</h1>
 
         <div class="actions">
-            <a class="action" href="">Create New Subject</a>
+            <a class="action" href="new.php">Create New Subject</a>
         </div>
 
         <table class="list">

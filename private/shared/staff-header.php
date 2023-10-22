@@ -10,13 +10,15 @@
 </head>
 <body>
     <header>
+        <img src="<?= url_for(PUBLIC_PATH . '/images/flatearth.webp');?>">
+        <h1>Welcome to Globe Bank. Where Money comes from.</h1>
     <nav>
         <ul>
-            <li><a href="<?php echo url_for('/staff/index.php'); ?>" a>Menu</li>
-            <li><a href="<?php echo url_for(('/staff/index.php')); ?>" a>History</li>
-            <li><a href="<?php echo url_for(('/staff/index.php')); ?>" a>Leadership</li>
-            <li><a href="<?php echo url_for(('/staff/index.php')); ?>" a>Contact US</li>
-            <li><a href="<?php echo url_for(('/staff/index.php')); ?>" a>Globe Bank</li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">History</a></li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Leadership</a></li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Contact US</a></li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Globe Bank</a></li>
         </ul>
     </nav>
     </header>

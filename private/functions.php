@@ -1,5 +1,11 @@
 <?php 
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     
+// 
+// }
+
+
 function url_for($script_path) {
     // add the leading '/' if not present
     if($script_path[0] != '/') {
@@ -36,5 +42,17 @@ function redirect_to($location) {
     exit();
 
 }
+
+function postRequest() {
+    return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+function getRequest() {
+    return $_SERVER['REQUEST_METHOD'] === 'GET';
+}
+
+// if( request_is_post() ) {
+//     /process form
+// }
+
 
 ?>
