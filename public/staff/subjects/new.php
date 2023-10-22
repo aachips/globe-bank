@@ -17,6 +17,7 @@
 
 <a href="<?php echo url_for('/staff/subjects/index.php'); ?>" class="back-link"></a>
     <h1>Create Subject</h1>
+    
     <form action="<?= url_for('staff/subjects/create.php');?>" method="post">
     <dl>
         <dt>Menu name</dt>

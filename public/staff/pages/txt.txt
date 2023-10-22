@@ -46,3 +46,38 @@ Use Form Parameters
 $name = $_POST['name'];
 $name = isset($_POST['name']) ? $_POST['name'] : ";
 $n = $_POST['name'] ?? "; // PHP > 7.0
+
+Detect Form Submission
+Test if a key parameter has a value. See if submit parameter was sent. or if REQUEST_METHOD was post request. 
+<?php if(isset($_POST['username']) )
+{ // process form }
+
+<input type="submit" name="submit" value="submit">
+
+if(isset($_POST['submit'] {
+    /process form }
+))
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    /PROCESS Form
+
+}
+
+function request_is_post() {
+    return $_SERVER['REQUEST_METHOD'] === 'POST'
+}
+
+if( request_is_post() ) {
+    /process form
+}
+
+request_is_get()
+
+function 
+
+
+single-page form processing
+all logic related to form is in one filere
+display the form on errors
+return error messages
+populate fields with previous values
