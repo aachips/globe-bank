@@ -10,8 +10,9 @@
 </head>
 <body>
     <header>
-        <img src="<?= url_for(PUBLIC_PATH . '/images/flatearth.webp');?>">
+        <img src="<?= url_for('/images/flatearth.webp');?>" width="244" height="138">
         <h1>Welcome to Globe Bank. Where Money comes from.</h1>
+    </header>
     <nav>
         <ul>
             <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
@@ -21,4 +22,3 @@
             <li><a href="<?php echo url_for('/staff/index.php'); ?>">Globe Bank</a></li>
         </ul>
     </nav>
-    </header>
