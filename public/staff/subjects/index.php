@@ -1,11 +1,14 @@
 <?php require_once('../../../private/initialize.php');
 
-$subjects = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '2', 'menu_name' => 'Consumer'],
-    ['id' => '3', 'position' => '3', 'visible' => '3', 'menu_name' => 'Small Business'],
-    ['id' => '4', 'position' => '4', 'visible' => '4', 'menu_name' => 'Commercial'],
-];
+$subject_set = find_all_subjects();
+
+
+// $subjects = [
+//     ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
+//     ['id' => '2', 'position' => '2', 'visible' => '2', 'menu_name' => 'Consumer'],
+//     ['id' => '3', 'position' => '3', 'visible' => '3', 'menu_name' => 'Small Business'],
+//     ['id' => '4', 'position' => '4', 'visible' => '4', 'menu_name' => 'Commercial'],
+// ];
 
 $page_title = 'Subjects';
 include(SHARED_PATH . '/staff-header.php'); ?>
@@ -29,7 +32,7 @@ include(SHARED_PATH . '/staff-header.php'); ?>
                 <th>&nbsp;</th>
             </tr>
 
-            <?php foreach($subjects as $subject) { ?>
+            <?php while($subject = mysqli_fetch_assoc($subject_set)) { ?>
                 <tr>
                     <td><?php echo h($subject['id']); ?></td>
                     <td><?php echo h($subject['position']); ?></td>
@@ -41,6 +44,7 @@ include(SHARED_PATH . '/staff-header.php'); ?>
                 </tr>
             <?php } ?>
         </table>
+        <?= mysqli_free_result($subject_set); ?>
     </div>
 </div>
 

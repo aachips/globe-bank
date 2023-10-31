@@ -1,7 +1,7 @@
 <?=
 
 require_once('../../../private/initialize.php'); 
-if postRequest() {
+if ( postRequest() ) {
 
     // Handle form values sent by new.php
     $menu_name = $_POST['menu-name'] ?? '';
