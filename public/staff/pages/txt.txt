@@ -81,3 +81,327 @@ all logic related to form is in one filere
 display the form on errors
 return error messages
 populate fields with previous values
+
+Database Advantages
+    Read and write Data
+    Store more data
+    Keep data organized
+    access data faster
+    relate data to other data
+
+MySQl
+    Open source and free
+    Easy to use
+    Popular
+    Good introduction to database concepts
+
+Spreadsheets vs Database
+    Spreadsheets are optimized for adding numbers
+    Databases are optimized for working with data
+    Databases can traverse relationships between tables
+    Commands are used to interact with database
+
+Database Terminology
+    Database - set of tables. 
+    One database = one applicatoin.
+    Most times one database user - the web app
+
+    table  
+    Set of columns and rows
+    Represents a single concept (a noun)
+    Examples: products, customers, and orders
+    Relationships between tables
+
+    columns
+        Set of data of a single simple type
+        examples: first_name, last_name, email, password
+        Has a single, for example, strings, integers, and boolean
+
+    rows
+    single record of data
+    bob-smith-bob@email.com-secret
+
+    fields
+    intersection of a row and a columns
+
+    primary key
+    table column which provides a unique record identifier (id: 207)
+
+    foreign key
+    table column whose values references rows in another tablef
+    foundation of relational Databases
+
+    index
+    data structure of a table to increase lookupspead
+    like index at back of book
+    primary and foreign most common indices
+
+    CRUD
+    create read update Delete
+    four primary operations
+
+
+    ## On terminal
+    install MySQl
+    log in : mysql -u root -p 56hM1ami34!$
+    root user is most powerful user
+    p asks for password
+
+    SHOW Databases;
+    all commands end in semicolon in mysql
+    CREATE DATABASE db_name;
+    USE db_name;
+    DROP DATABASE db_name;
+    SHOW DATABASES
+
+    CREATE DATABASE aachipblog;
+    GRANT ALL PRIVILEGES ON aachipblog . *
+    TO 'aachips@localhost'
+    IDENTIFIED BY 'password';
+
+    SHOW TABLES;
+    SHOW COLUMNS FROM table_name;
+    DROP TABLE table_name;
+
+    Create a Database table
+    + Subjects
+        - id: primary key
+        - menu_name: string
+        - position: integers
+        - visible: boolean
+
+    CREATE TABLE subjects (
+        id INT(11) NOT NULL AUTO_INCREMENT,
+        menu_name VARCHAR(255),
+        position INT(3),
+        visible TINYINT(1),
+        PRIMARY KEY (id)
+    );
+
+    To use that database
+    USE db_name;
+
+    CREATE TABLE subjects (
+        id INT(11) NOT NULL AUTO-INCREMENT,
+        menu_name VARCHAR(255),
+        position INT(3),
+        visible TINYINT(1),
+        PRIMARY KEY (id)
+    );
+
+CRUD in MySQl
+create read update Delete
+
+SELECT * 
+FROM table
+WHERE column1 = 'some-text'
+ORDER BY column1 ASC;
+
+SQL SELECT (Read)
+    SELECT *
+    FROM table
+    WHERE column1 = 'some_text'
+    ORDER BY column1 ASC;
+
+SQL INSERT (Create)
+    INSERT INTO table (col1, col2, col3)
+    VALUES (val1, val2, val3);
+
+SQL UPDATE (Update)
+    UPDATE table
+    SET col1 = 'this', col2 = 'that'
+    WHERE id = 1;
+
+SQL DELETE (Delete)
+    DELETE FROM table
+    WHERE id = 1;
+
+Populate a Database
+
+USE globe_bank;
+SHOW TABLES;
+SELECT * FROM subjects;
+INSERT INTO subjects (id, menu_name, position, visible)
+VALUES (1, 'About Globe Bank', 1, 1);
+INSERT INTO subjects (menu_name, position, visible)
+VALUES ('Consumer', 2, 1);
+INSERT INTO subjects (menu_name, position, visible)
+VALUES ('Small Business', 3, 1);
+
+SELECT * FROM subjects WHERE id = 2;
+SELECT * FROM subjects WHERE position = 3;
+SELECT * FROM subjects WHERE position = 3 AND visible = 1;
+
+UPDATE subjects SET position='4' WHERE id=3;
+
+Relational Database tables
+
+One-to-Many Relationships
+Subject > Page * 4
+
+table: subjects
+
+<table>
+    <tr>
+        <td>id</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>menu_name</td>
+        <td>"about globe bank"</td>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>1</td>
+    </tr>
+</table>
+
+table: pages
+
+<table>
+    <tr>
+        <td>id</td>
+        <td>12</td>
+    </tr>
+    <tr>
+        <td>menu_name</td>
+        <td>"History"</td>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>TRUE</td>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td>"Founded in 1950.."</td>
+    </tr>
+</table>
+
+SQL ADD index  
+    ALTER TABLE table
+    ADD INDEX index_name (column);
+
+    Primary Keys vs Foreign Keys
+    Anytime you have a Foreign Key, put an Index on it
+
+    
+    Challenge: Pages table
+        + Log into MySQl
+        + Use the database globe_bank
+        + Create a table for pages
+
+        pages  
+            id: primary key
+            subject_id: integers
+            menu_name: string
+            position: integer
+            visible: boolean
+            content: text
+
+        Add index on all foreign Keys
+        Add data for pages
+
+        Try CRUD SQL commands
+        Find subjects by their primary key
+        Find pages by their primary and foreign keys
+
+
+
+
+table: subjects
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>menu_name</td>
+        <td>"about globe bank"</td>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>1</td>
+    </tr>
+</table>
+
+  
+
+table: pages
+
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>12</td>
+    </tr>
+<tr>
+        <td>subject_id</td>
+        <td>3(foreign key)</td>
+    </tr>
+
+<tr>
+        <td>menu_name</td>
+        <td>"History"</td>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>TRUE</td>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td>"Founded in 1950.."</td>
+    </tr>
+</table>
+
+CREATE TABLE table_name (
+    column_name1 definition,
+    column_name2 definition,
+    column_name3 definition,
+    options
+);
+
+SHOW TABLES;
+
+SHOW COLUMNS FROM table_name;
+DROP TABLE table_name;
+
+Create a Database Table3
+Subjects    
+    id: primary key (every db table needs a primary key)
+    menu_name: string
+    position: integer
+    visible: boolean
+
+CREATE TABLE subjects (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    menu_name VARCHAR(255),
+    position INT(3),
+    visible TINYINT(1),
+    PRIMARY KEY (id)
+); 
+
+
+Work with Retrieved Datamysqli_fetch_row
+Work with Retrieved Datamysqli_fetch_assoc
+    Returns associative array. Keys are column names. echo $subject['menu_name'];
+Work with Retrieved Datamysqli_fetch_array
+
+$result = find_all_subjects();
+
+while($subject = mysqli_fetch_assoc($result)) 
+    echo $subject['menu_name'];

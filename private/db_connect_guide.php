@@ -1,4 +1,4 @@
-<?=
+<?php
     // 5 fundamental steps of database interaction with php
 	
     // Credentials
